@@ -26,8 +26,9 @@ app.use(express.static("public"));
 
 
 app.get("/", function(req,res){
-  res.render("home", {content:homeStartingContent, postItems: posts});
-  console.log(posts)
+  res.render("home", {
+    content:homeStartingContent, 
+    postItems: posts});
 })
 
 app.get("/About", function(req,res){
@@ -51,7 +52,20 @@ app.post("/Compose", function(req,res){
   }
   posts.push(post);
   res.redirect("/");
-})
+});
+
+// :variable is the same as flask with <variable>
+app.get("/posts/:postName", function(req, res){
+  console(req.params.postName);
+  const requestedTitle = req.params.postName;
+  postItems.array.forEach(function(post) {
+    const storedTitle = post.title;
+    if (storedTitle === requestedTitle){
+      console.log("Match found");
+    }
+  });
+
+});
 
 app.listen(3000, function() {
   console.log("Server started on port 3000");

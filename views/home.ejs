@@ -4,12 +4,12 @@
 
 <p><%=content%></p>
 
-<% for (var i=0; i<postItems.length; i++) { %>
+<!-- <% for (var i=0; i<postItems.length; i++) { %>
     <div >
         <h2><%=postItems[i]['title']%></h2>  
         <p><%=postItems[i]['content']%></p>  
     </div>
-<% } %>
+<% } %> -->
 
 <!-- below is a different way of doing the above -->
 <% postItems.forEach(function(post){ %>
