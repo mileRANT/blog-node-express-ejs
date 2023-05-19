@@ -14,7 +14,7 @@
 <!-- below is a different way of doing the above -->
 <% postItems.forEach(function(post){ %>
 <div>
-    <h2><%=post.title%></h2>
+    <h2><a href="/posts/<%=post.title%>"><%=post.title%></a></h2>
     <p><%=post.content%></p>
 </div>
 <% }) %>
